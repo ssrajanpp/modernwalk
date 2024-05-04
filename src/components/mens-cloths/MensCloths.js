@@ -1,7 +1,7 @@
 import React from "react";
 //import { useSelector, useDispatch } from "react-redux";
 import Header from "../header/Header";
-import Cart from "../cart/Cart";
+import Card from "../card/Card";
 //import useFetch from "../../hooks/useFetch";
 
 const MensCloths = () => {
@@ -12,7 +12,7 @@ const MensCloths = () => {
         <div className="row">
           <h2 className="mw-card-product-heading">Men's Cothing</h2>
         </div>
-        <Cart></Cart>
+        <Card></Card>
       </main>
     </>
   );

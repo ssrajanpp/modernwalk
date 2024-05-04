@@ -1,5 +1,7 @@
 @import '../../node_modules/bootstrap/scss/bootstrap.scss';
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
 
 // variabe
 $mainfontcolor: #0E0E0E;
@@ -35,7 +37,7 @@ body {
 }
 
 .mw-card-product-wrapper {
-    padding: 100px 25px 50px;
+    padding: 100px 50px 50px;
     .mw-card-product-heading {
         font-size: 25px;
         margin: 10px 0 30px;
@@ -50,7 +52,16 @@ body {
         align-items: center;
         margin-bottom: 25px;
         cursor: pointer;
+        position: relative;
         &:hover {
+            &::before {
+                content: '';
+                background-color: #0E0E0E;
+                width: 100%;
+                position: absolute;
+
+            }
+
             .mw-card-product-image {
                 scale: (1.1);
                 transition: all .5s ;
@@ -108,7 +119,7 @@ body {
         }
     }
     .mw-product-category {
-        box-shadow: 10px 15px 20px 0px rgba(0, 0, 0, 0.15);
+        box-shadow: 5px 10px 10px 0px rgba(0, 0, 0, 0.15);
         padding: 25px;
         min-height: 200px;
         border-radius: 25px;

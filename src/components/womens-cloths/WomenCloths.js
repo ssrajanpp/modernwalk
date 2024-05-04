@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "../header/Header";
-import Cart from "../cart/Cart";
+import Card from "../card/Card";
 
 const WomenCloths = () => {
   return (
@@ -10,7 +10,7 @@ const WomenCloths = () => {
         <div className="row">
           <h2 className="mw-card-product-heading">Women's Cothing</h2>
         </div>
-        <Cart></Cart>
+        <Card></Card>
       </main>
     </>
   );

@@ -2,8 +2,17 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import Header from "../header/Header";
-import Cart from "../cart/Cart";
+import Card from "../card/Card";
 import useFetch from "../../hooks/useFetch";
+
+const shuffleProduct = (array)  => {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -14,19 +23,20 @@ const Home = () => {
     data: products,
     error,
     isLoading,
-  } = useFetch("https://fakestoreapi.com/products");
+  } = useFetch("https://fakestoreapi.com/products/");
 
   // Set the products in the redux store
   // when the data is fetched
-
-  useEffect((category) => {
+  useEffect(() => {
     dispatch({ type: "SET_LOADING", isLoading: true });
-    const category1 = "men's clothing";
-    if (products.filter(
-      (product) => product.category === category1
-    )) {
-      dispatch({ type: "SET_PRODUCTS", products });
-      window.scrollTo(0,0);
+       if (products) {
+      // FIlter mens and womens products and shuffel them
+      const getOnlyMensWomenProducts = products.filter((product) => {
+        return product.category === 'men\'s clothing' || product.category === 'women\'s clothing';
+      });
+      const shuffledProducts = shuffleProduct(getOnlyMensWomenProducts);
+      dispatch({ type: "SET_PRODUCTS", products: shuffledProducts });
+        window.scrollTo(0,0);
     } else if (error) {
       dispatch({ type: "SET_ERROR", error });
     }
@@ -37,7 +47,7 @@ const Home = () => {
       (product) => product.category === category
     );    
     dispatch({ type: "FILTER_PRODUCTS", filteredProducts });
-      window.scrollTo(0,0);
+    window.scrollTo(0,0);
   };
 
   return (
@@ -47,7 +57,7 @@ const Home = () => {
         <div className="row">
           <h2 className="mw-card-product-heading">Flash Sales</h2>
         </div>
-        <Cart></Cart>
+        <Card></Card>
         <div className="row">
           <h2 className="mw-card-product-heading">Categories</h2>
         </div>

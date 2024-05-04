@@ -5,6 +5,8 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
 :root,
 [data-bs-theme=light] {
   --bs-blue: #0d6efd;
@@ -11988,7 +11990,7 @@ body {
 }
 
 .mw-card-product-wrapper {
-  padding: 100px 25px 50px;
+  padding: 100px 50px 50px;
 }
 .mw-card-product-wrapper .mw-card-product-heading {
   font-size: 25px;
@@ -12004,6 +12006,13 @@ body {
   align-items: center;
   margin-bottom: 25px;
   cursor: pointer;
+  position: relative;
+}
+.mw-card-product-wrapper .mw-card-product-card:hover::before {
+  content: "";
+  background-color: #0E0E0E;
+  width: 100%;
+  position: absolute;
 }
 .mw-card-product-wrapper .mw-card-product-card:hover .mw-card-product-image {
   scale: 1.1;
@@ -12055,7 +12064,7 @@ body {
   font-size: 35px;
 }
 .mw-card-product-wrapper .mw-product-category-link .mw-product-category {
-  box-shadow: 10px 15px 20px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 5px 10px 10px 0px rgba(0, 0, 0, 0.15);
   padding: 25px;
   min-height: 200px;
   border-radius: 25px;
