@@ -18,9 +18,13 @@ const Home = () => {
 
   // Set the products in the redux store
   // when the data is fetched
-  useEffect(() => {
+
+  useEffect((category) => {
     dispatch({ type: "SET_LOADING", isLoading: true });
-    if (products) {
+    const category1 = "men's clothing";
+    if (products.filter(
+      (product) => product.category === category1
+    )) {
       dispatch({ type: "SET_PRODUCTS", products });
       window.scrollTo(0,0);
     } else if (error) {
