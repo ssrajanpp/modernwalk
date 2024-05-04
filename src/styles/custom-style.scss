@@ -1,4 +1,3 @@
-/* @import '~bootstrap/scss/bootstrap'; */
 @import '../../node_modules/bootstrap/scss/bootstrap.scss';
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
@@ -14,7 +13,6 @@ $bgcolor-green: #2BD9AF;
 body {
     background-color: $pagecolor;
     font-family: "Roboto", sans-serif;
-    // font-weight: 100;
     font-style: normal;
     color: $mainfontcolor;
 }
@@ -26,7 +24,7 @@ body {
     }
 
     .mw-header-title{
-        font-size: 38px;
+        font-size: 25px;
         font-weight: 700;
         margin-top: 10px;
         a {
@@ -37,10 +35,11 @@ body {
 }
 
 .mw-card-product-wrapper {
-    padding: 100px 50px 50px;
+    padding: 100px 25px 50px;
     .mw-card-product-heading {
         font-size: 25px;
         margin: 10px 0 30px;
+        font-weight: 700;
     }
     .mw-card-product-card {
         box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.15);
@@ -62,6 +61,7 @@ body {
     font-size: 23px;
     font-weight: 700;
     margin: 5px 0 15px 0;
+    text-transform: capitalize;
     }
     .mw-card-product-image {
         height: 220px;
@@ -100,27 +100,76 @@ body {
 }
 .mw-product-category-link {
     text-decoration: none;
+    &:hover {
+        .mw-product-category {
+            .mw-category-title { 
+                font-size: 35px;
+            }
+        }
+    }
+    .mw-product-category {
+        box-shadow: 10px 15px 20px 0px rgba(0, 0, 0, 0.15);
+        padding: 25px;
+        min-height: 200px;
+        border-radius: 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 25px;
+    
+        .mw-category-title {
+            font-size: 30px;
+            font-weight: 700;
+            color: white;
+            text-align: center;
+            transition: font-size .5s ease-out;;
+        }
+        &.bgcolor-pink {
+            background-color: $bgcolor-pink;
+        }
+        &.bgcolor-green {
+            background-color: $bgcolor-green;
+        }
+        }
 }
-.mw-product-category {
-    box-shadow: 10px 15px 20px 0px rgba(0, 0, 0, 0.15);
-    padding: 50px;
-    min-height: 320px;
-    border-radius: 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 50px;
 
-    .mw-category-title {
-        font-size: 50px;
-        font-weight: 700;
-        color: white;
+}
+
+
+// Desktop styling
+
+@media (min-width:1025px) {
+    .mw-header {
+        .navbar {
+            .container-fluid {
+                display: flex;
+                justify-content: center;
+            }
+        }
     }
-    &.bgcolor-pink {
-        background-color: $bgcolor-pink;
+    .mw-card-product-wrapper {
+        padding: 100px 50px 50px;
+        .mw-product-category-link {
+            &:hover {
+                .mw-product-category {
+                    .mw-category-title { 
+                        font-size: 55px;
+                    }
+                }
+            }
+            .mw-product-category {
+                min-height: 320px;
+                margin-bottom: 50px;
+                padding: 50px;
+                .mw-category-title {
+                    font-size: 50px;
+                }
+            }
+        }
     }
-    &.bgcolor-green {
-        background-color: $bgcolor-green;
-    }
+    .mw-header {
+        .mw-header-title {
+            font-size: 38px;
+        }
     }
 }

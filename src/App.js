@@ -1,33 +1,21 @@
-import React from 'react';
+import React from "react";
 // import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import './App.css';
-import Home from './components/home/Home';
-import Mens from './components/mens-cloths/MensCloths';
-
-
+import Home from "./components/home/Home";
+import Mens from "./components/mens-cloths/MensCloths";
+import Women from "./components/womens-cloths/WomenCloths";
 
 function App() {
   return (
     <>
-    <BrowserRouter>
-      <Routes>
-    
-        <Route path="*" element={<Home />}>
-        <Route path="Mens" element={<Mens />} />
-        {/*   <Route index element={<Home />} />
-          <Route path="blogs" element={<Blogs />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="*" element={<NoPage />} /> */}
-        </Route>
-      </Routes>
-    </BrowserRouter>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/mens-cloths/MensCloths" element={<Mens />} />
+          <Route path="/womens-cloths/WomensCloths" element={<Women />} />
+        </Routes>
+      </BrowserRouter>
     </>
-
-//   <div className='mw-page-container'>
-//     <Header></Header>
-//     <Home></Home>
-// </div>
   );
 }
 
