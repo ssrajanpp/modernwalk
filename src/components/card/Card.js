@@ -16,8 +16,6 @@ const Card = () => {
               src={product.image}
               alt={product.title}
             />
-             {/* <div className="mw-card-product-bottom bgcolor-pink"> */}
-             {/* {console.log(product.category)} */}
             <div className={product.category.replace(/'/g, '') === 'mens clothing' ? 'mw-card-product-bottom bgcolor-green' : 'mw-card-product-bottom bgcolor-pink'}>
               <h3 className="mw-card-product-price">{product.price}</h3>
               <p className="mw-card-product-desc">{product.description}</p>

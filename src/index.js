@@ -3,7 +3,6 @@ import { Provider } from 'react-redux';
 import ReactDOM from "react-dom/client";
 import "./styles/custom-style.css";
 import App from "./App";
-import reportWebVitals from "./reportWebVitals";
 import store from './store/store';
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -14,4 +13,3 @@ root.render(
     </Provider>
   </React.StrictMode>
 );
-reportWebVitals();
